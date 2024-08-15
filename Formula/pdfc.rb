@@ -1,8 +1,16 @@
+
 class Pdfc < Formula
   desc "PDF Compressor in C with Ghostscript"
   homepage "https://github.com/Huaqo/pdfc"
-  url "https://github.com/Huaqo/pdfc/releases/download/v1.0.0/pdfc"
-  sha256 "49d59d93180d0a8268b0057c62c4c7653382400167cd0a2f8e2da65c05c89ffd"
+  
+  if OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/Huaqo/pdfc/releases/download/v1.0.0/pdfc-arm64"
+    sha256 "4435d29be68665ec9d8e3cfe8ae072bcebbf064ec287fe9928383ee1ce9a9fbb"
+  elsif OS.mac? && Hardware::CPU.intel?
+    url "https://github.com/Huaqo/pdfc/releases/download/v1.0.0/pdfc-x86_64"
+    sha256 "49d59d93180d0a8268b0057c62c4c7653382400167cd0a2f8e2da65c05c89ffd"
+  end
+  
   license "MIT"
 
   depends_on "ghostscript"
