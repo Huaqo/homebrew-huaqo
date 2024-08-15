@@ -17,7 +17,13 @@ To start using the huaqo tap, you need to add it to your Homebrew:
 brew tap huaqo/huaqo
 ```
 
-### Step 2: Install a Formula
+### Step 2: Update list
+
+```sh
+brew update
+```
+
+### Step 3: Install a Formula
 
 Once you've added the tap, you can install formulae from it just like any other Homebrew package. For example, if there is a formula called `example`, you can install it using:
 
