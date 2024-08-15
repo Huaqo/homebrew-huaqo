@@ -16,7 +16,11 @@ class Pdfc < Formula
   depends_on "ghostscript"
 
   def install
-    bin.install "pdfc"
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "pdfc-arm64" => "pdfc"
+    elsif OS.mac? && Hardware::CPU.intel?
+      bin.install "pdfc-x86_64" => "pdfc"
+    end
   end
 
   test do
